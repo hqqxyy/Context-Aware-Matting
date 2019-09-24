@@ -44,9 +44,6 @@ After moving, it should be like
 └── README.md
 ```
 
-We also provide the our results of Compisition-1k dataset and the real-world image dataset. You can download them at
-[here](http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/files/result.tgz).
-
 
 ## Run
 
@@ -105,6 +102,12 @@ export CUDA_VISIBLE_DEVICES=''
 , and you may need to set  `--model_parallelism=False`. 
 
 Or you can resize the image and trimap to a smaller size and change the `vis_comp_crop_size`  and `vis_patch_crop_size` accordingly. 
+
+
+
+## Results
+We also provide the our results of Compisition-1k dataset and the real-world image dataset. You can download them at
+[here](http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/files/result.tgz).
 
 
 If you find this code is helpful, please consider to cite our paper. It is very important to us.
