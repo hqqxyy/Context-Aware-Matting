@@ -1,6 +1,6 @@
-### Inference codes of Context-aware Image Matting for Simultaneous Foreground and Alpha Estimation
+# Inference codes of Context-aware Image Matting for Simultaneous Foreground and Alpha Estimation
 
-This is the official codes for the paper context-aware image matting for simultaneous foreground and alpha estimation.
+This is the official inference codes of [paper](https://arxiv.org/abs/1909.09725). 
 
 ## Environments
 System: Ubuntu
@@ -15,7 +15,7 @@ System RAM: >= 64G
 
 1, Clone Context-aware Matting repository
 ```shell
-git clone 
+git clone https://github.com/hqqxyy/Context-Aware-Matting.git
 ``` 
 
 2, Download our models at [here](http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/files/model.tgz). Unzip them and move it to 
