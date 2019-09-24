@@ -113,7 +113,8 @@ We also provide the our results of Compisition-1k dataset and the real-world ima
 If you find this code is helpful, please consider to cite our paper. It is very important to us.
 
 
-If you find any bugs of the code, feel free to send me an email: qiqi2 at pdx dot edu
+If you find any bugs of the code, feel free to send me an email: qiqi2 AT pdx DOT edu. You can find more information in my 
+[homepage](http://web.cecs.pdx.edu/~qiqi2/)
 
 ## Reference
 Deeplab: https://github.com/tensorflow/models/tree/master/research/deeplab
