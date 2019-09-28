@@ -139,6 +139,7 @@ If you find any bugs of the code, feel free to send me an email: qiqi2 AT pdx DO
 
 ## Acknowledgments
 The source images in the demo figure are used under a Creative Commons license from Flickr users Robbie Sproule, 
-MEGA PISTOLO and Jeff Latimer. The background images are from the MS-COCO dataset. 
+MEGA PISTOLO and Jeff Latimer. The background images are from the MS-COCO dataset. The images in the examples are from 
+ Composition-1k dataset and the real-world image. 
 
 
