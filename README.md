@@ -1,17 +1,24 @@
 # Inference codes of Context-aware Image Matting for Simultaneous Foreground and Alpha Estimation
 
-This is the official inference codes of [paper](https://arxiv.org/abs/1909.09725). 
+This is the official inference codes of Context-aware Image Matting for Simultaneous Foreground and Alpha Estimation 
+[arxiv](https://arxiv.org/abs/1909.09725) using Tensorflow. Given an image and its trimap, it will predict the alpha matte
+and foreground color. 
 
-## Environments
+<a href="https://arxiv.org/pdf/1909.09725" rel="Paper"><img src="http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/demo.jpg" alt="Paper" width="100%"></a>
+
+## Setup
+
+### Requirements
 System: Ubuntu
 
-Tensorflow version: tf1.8 or tf1.13
+Tensorflow version: tf1.8, tf1.12 and tf1.13 (It might also work for other versions.)
 
 GPU memory: >= 12G
 
 System RAM: >= 64G
 
-## Prepare
+
+### Download codes and models
 
 1, Clone Context-aware Matting repository
 ```shell
@@ -91,17 +98,16 @@ python conmat/demo.py \
 You can find the result at `./log/`
 
 
-###Note
+### Note
 Please note that since the input image is high resolution. You might need to use gpu whose memory 
 is bigger or equal to 12G. You can set the `--model_parallelism=True` in order to further save the GPU memory. 
 
-If you still meet problems, you can run the codes in CPU by 
+If you still meet problems, you can run the codes in CPU by disable GPU
 ```bash
 export CUDA_VISIBLE_DEVICES=''
 ```
-, and you may need to set  `--model_parallelism=False`. 
-
-Or you can resize the image and trimap to a smaller size and change the `vis_comp_crop_size`  and `vis_patch_crop_size` accordingly. 
+, and you need to set  `--model_parallelism=False`.  Otherwise, you can resize the image and trimap to a smaller size 
+and then change the `vis_comp_crop_size`  and `vis_patch_crop_size` accordingly. 
 
 
 
@@ -110,11 +116,29 @@ We also provide the our results of Compisition-1k dataset and the real-world ima
 [here](http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/files/result.tgz).
 
 
-If you find this code is helpful, please consider to cite our paper. It is very important to us.
+## License
+The provided implementation is strictly for academic purposes only. 
+Should you be interested in using our technology for any commercial use, please feel free to contact us.
 
+
+ 
+If you find this code is helpful, please consider to cite our paper.
+```
+@article{hou2019context,
+  title={Context-Aware Image Matting for Simultaneous Foreground and Alpha Estimation},
+  author={Hou, Qiqi and Liu, Feng},
+  journal={arXiv preprint arXiv:1909.09725},
+  year={2019}
+}
+```
 
 If you find any bugs of the code, feel free to send me an email: qiqi2 AT pdx DOT edu. You can find more information in my 
-[homepage](http://web.cecs.pdx.edu/~qiqi2/)
+[homepage](http://web.cecs.pdx.edu/~qiqi2/).
 
-## Reference
-Deeplab: https://github.com/tensorflow/models/tree/master/research/deeplab
+
+
+## Acknowledgments
+The source images in the demo figure are used under a Creative Commons license from Flickr users Robbie Sproule, 
+MEGA PISTOLO and Jeff Latimer. The background images are from the MS-COCO dataset. 
+
+
