@@ -2,7 +2,7 @@
 
 This is the inference codes of Context-Aware Image Matting for Simultaneous Foreground and Alpha Estimation 
 using Tensorflow ([paper link](https://arxiv.org/abs/1909.09725)). Given an image and its trimap, 
-it will predict the alpha matte and foreground color. 
+it estimates the alpha matte and foreground color. 
 
 <a href="https://arxiv.org/pdf/1909.09725" rel="Paper"><img src="http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/demo.jpg" alt="Paper" width="100%"></a> 
 
