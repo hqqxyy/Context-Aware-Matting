@@ -43,6 +43,10 @@ Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang,
 Tobias Weyand, Marco Andreetto, Hartwig Adam
 https://arxiv.org/abs/1704.04861
 """
+
+"""
+Ref deeplab codes: https://github.com/tensorflow/models/tree/master/research/deeplab
+"""
 import collections
 import tensorflow as tf
 

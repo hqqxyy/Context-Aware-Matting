@@ -686,26 +686,6 @@ def refine_by_decoder_conmat(features,
                              reuse=None,
                              is_training=False,
                              fine_tune_batch_norm=False):
-  """Adds the decoder to obtain sharper segmentation results.
-
-  Args:
-    features: A tensor of size [batch, features_height, features_width,
-      features_channels].
-    end_points: A dictionary from components of the network to the corresponding
-      activation.
-    decoder_height: The height of decoder feature maps.
-    decoder_width: The width of decoder feature maps.
-    decoder_use_separable_conv: Employ separable convolution for decoder or not.
-    model_variant: Model variant for feature extraction.
-    weight_decay: The weight decay for model variables.
-    reuse: Reuse the model variables or not.
-    is_training: Is training or not.
-    fine_tune_batch_norm: Fine-tune the batch norm parameters or not.
-
-  Returns:
-    Decoder output with size [batch, decoder_height, decoder_width,
-      decoder_channels].
-  """
   batch_norm_params = {
       'is_training': is_training and fine_tune_batch_norm,
       'decay': 0.9997,
@@ -781,6 +761,9 @@ def refine_by_decoder_conmat(features,
         return decoder_features, decoder_endpoints
 
 
+"""
+Ref deeplab codes: https://github.com/tensorflow/models/tree/master/research/deeplab
+"""
 def _get_branch_logits(features,
                        num_classes,
                        atrous_rates=None,
@@ -789,30 +772,6 @@ def _get_branch_logits(features,
                        weight_decay=0.0001,
                        reuse=None,
                        scope_suffix=''):
-  """Gets the logits from each model's branch.
-
-  The underlying model is branched out in the last layer when atrous
-  spatial pyramid pooling is employed, and all branches are sum-merged
-  to form the final logits.
-
-  Args:
-    features: A float tensor of shape [batch, height, width, channels].
-    num_classes: Number of classes to predict.
-    atrous_rates: A list of atrous convolution rates for last layer.
-    aspp_with_batch_norm: Use batch normalization layers for ASPP.
-    kernel_size: Kernel size for convolution.
-    weight_decay: Weight decay for the model variables.
-    reuse: Reuse model variables or not.
-    scope_suffix: Scope suffix for the model variables.
-
-  Returns:
-    Merged logits with shape [batch, height, width, num_classes].
-
-  Raises:
-    ValueError: Upon invalid input kernel_size value.
-  """
-  # When using batch normalization with ASPP, ASPP has been applied before
-  # in _extract_features, and thus we simply apply 1x1 convolution here.
   if aspp_with_batch_norm or atrous_rates is None:
     if kernel_size != 1:
       raise ValueError('Kernel size must be 1 when atrous_rates is None or '
@@ -844,6 +803,9 @@ def _get_branch_logits(features,
       return tf.add_n(branch_logits)
 
 
+"""
+Ref deeplab codes: https://github.com/tensorflow/models/tree/master/research/deeplab
+"""
 def _split_separable_conv2d(inputs,
                             filters,
                             rate=1,

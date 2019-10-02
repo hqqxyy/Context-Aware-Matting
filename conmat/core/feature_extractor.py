@@ -90,6 +90,9 @@ def mean_pixel(model_variant=None):
     return [127.5, 127.5, 127.5]
 
 
+"""
+Ref deeplab codes: https://github.com/tensorflow/models/tree/master/research/deeplab
+"""
 def extract_features(images,
                      output_stride=8,
                      multi_grid=None,
@@ -163,6 +166,9 @@ def extract_features(images,
   return features, end_points
 
 
+"""
+Ref deeplab codes: https://github.com/tensorflow/models/tree/master/research/deeplab
+"""
 def get_network(network_name, preprocess_images, arg_scope=None):
   """Gets the network.
 
