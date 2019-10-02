@@ -1,10 +1,10 @@
-# Inference codes of Context-aware Image Matting for Simultaneous Foreground and Alpha Estimation
+# Context-Aware Image Matting for Simultaneous Foreground and Alpha Estimation 
 
-This is the official inference codes of Context-aware Image Matting for Simultaneous Foreground and Alpha Estimation 
-[arxiv](https://arxiv.org/abs/1909.09725) using Tensorflow. Given an image and its trimap, it will predict the alpha matte
-and foreground color. 
+This is the inference codes of Context-Aware Image Matting for Simultaneous Foreground and Alpha Estimation 
+using Tensorflow ([paper link](https://arxiv.org/abs/1909.09725)). Given an image and its trimap, 
+it will predict the alpha matte and foreground color. 
 
-<a href="https://arxiv.org/pdf/1909.09725" rel="Paper"><img src="http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/demo.jpg" alt="Paper" width="100%"></a>
+<a href="https://arxiv.org/pdf/1909.09725" rel="Paper"><img src="http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/demo.jpg" alt="Paper" width="100%"></a> 
 
 ## Setup
 
@@ -110,9 +110,7 @@ export CUDA_VISIBLE_DEVICES=''
 and then change the `vis_comp_crop_size`  and `vis_patch_crop_size` accordingly. 
 
 
-
-## Results
-We also provide the our results of Compisition-1k dataset and the real-world image dataset. You can download them at
+You can download our results of Compisition-1k dataset and the real-world image dataset at
 [here](http://web.cecs.pdx.edu/~qiqi2/files/papers/conmat/files/result.tgz).
 
 
@@ -124,11 +122,11 @@ Should you be interested in using our technology for any commercial use, please 
  
 If you find this code is helpful, please consider to cite our paper.
 ```
-@article{hou2019context,
+@inproceedings{hou2019context,
   title={Context-Aware Image Matting for Simultaneous Foreground and Alpha Estimation},
   author={Hou, Qiqi and Liu, Feng},
-  journal={arXiv preprint arXiv:1909.09725},
-  year={2019}
+  booktitle = {IEEE International Conference on Computer Vision},
+  year = {2019}
 }
 ```
 
@@ -138,8 +136,9 @@ If you find any bugs of the code, feel free to send me an email: qiqi2 AT pdx DO
 
 
 ## Acknowledgments
-The source images in the demo figure are used under a Creative Commons license from Flickr users Robbie Sproule, 
+This projects employs functions from [Deeplab V3+](https://github.com/tensorflow/models/tree/master/research/deeplab) 
+to implement our network. The source images in the demo figure are used under a Creative Commons license from Flickr users Robbie Sproule, 
 MEGA PISTOLO and Jeff Latimer. The background images are from the MS-COCO dataset. The images in the examples are from 
- Composition-1k dataset and the real-world image. 
+ Composition-1k dataset and the real-world image. We thank them for their help.
 
 
