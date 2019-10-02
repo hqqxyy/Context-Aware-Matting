@@ -1,6 +1,3 @@
-"""
-Ref deeplab codes: https://github.com/tensorflow/models/tree/master/research/deeplab
-"""
 import tensorflow as tf
 from conmat.core import feature_extractor
 
