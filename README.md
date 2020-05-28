@@ -73,7 +73,7 @@ python conmat/demo.py \
 You can find the result at `./log/`
 
 
-For the model(5) ME+CE+lap+fea+DA in the paper. 
+For the model(5) ME+CE+lap+fea+DA in the paper. (Please use this model for the real world images) 
 ```bash
 python conmat/demo.py \
 --checkpoint=./model/lap_fea_da/model.ckpt \
