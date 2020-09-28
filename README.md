@@ -131,7 +131,7 @@ If you find this code is helpful, please consider to cite our paper.
 ```
 
 If you find any bugs of the code, feel free to send me an email: qiqi2 AT pdx DOT edu. You can find more information in my 
-[homepage](http://web.cecs.pdx.edu/~qiqi2/).
+[homepage](https://hqqxyy.github.io/).
 
 
 
