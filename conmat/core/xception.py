@@ -254,6 +254,19 @@ def xception_module(inputs,
 
     def _separable_conv(features, depth, kernel_size, depth_multiplier,
                         regularize_depthwise, rate, stride, scope):
+        """
+        Separate separable layer.
+
+        Args:
+            features: (todo): write your description
+            depth: (int): write your description
+            kernel_size: (int): write your description
+            depth_multiplier: (todo): write your description
+            regularize_depthwise: (bool): write your description
+            rate: (array): write your description
+            stride: (int): write your description
+            scope: (str): write your description
+        """
       if activation_fn_in_separable_conv:
         activation_fn = tf.nn.relu
       else:

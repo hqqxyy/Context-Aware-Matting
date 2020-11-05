@@ -165,6 +165,13 @@ class ModelOptions(
         model_variant)
 
   def __deepcopy__(self, memo):
+      """
+      Returns a copy of the model
+
+      Args:
+          self: (todo): write your description
+          memo: (dict): write your description
+      """
     return ModelOptions(copy.deepcopy(self.num_classes),
                         self.crop_size,
                         self.atrous_rates,

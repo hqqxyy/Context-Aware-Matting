@@ -71,6 +71,19 @@ _TRIMAP_FORMAT = '%s_%06d_trimap'
 
 
 def _process_batch(sess, feed_dict, patch_images, patch_mat_preds, patch_color_preds, image_name, patch_size, save_dir):
+    """
+    Process a batch of images.
+
+    Args:
+        sess: (todo): write your description
+        feed_dict: (dict): write your description
+        patch_images: (todo): write your description
+        patch_mat_preds: (str): write your description
+        patch_color_preds: (str): write your description
+        image_name: (str): write your description
+        patch_size: (int): write your description
+        save_dir: (str): write your description
+    """
   (patch_mat_preds,
    patch_color_preds,) = sess.run([patch_mat_preds, patch_color_preds], feed_dict=feed_dict)
 
@@ -101,6 +114,15 @@ def _process_batch(sess, feed_dict, patch_images, patch_mat_preds, patch_color_p
 
 
 def process_image(fgpath, trimappath=None, comp_size=(2101, 2101), patch_size=(2101, 2101)):
+    """
+    Process an image.
+
+    Args:
+        fgpath: (str): write your description
+        trimappath: (str): write your description
+        comp_size: (int): write your description
+        patch_size: (int): write your description
+    """
     fg = np.array(Image.open(fgpath).convert('RGB'))
 
     trimap = None
@@ -124,6 +146,12 @@ def process_image(fgpath, trimappath=None, comp_size=(2101, 2101), patch_size=(2
 
 
 def main(unused_argv):
+    """
+    Main function.
+
+    Args:
+        unused_argv: (bool): write your description
+    """
   tf.logging.set_verbosity(tf.logging.INFO)
   tf.gfile.MakeDirs(FLAGS.vis_logdir)
 

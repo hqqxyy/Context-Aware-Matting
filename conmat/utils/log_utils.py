@@ -29,6 +29,15 @@ class ReDirectSTD(object):
   """
 
   def __init__(self, fpath=None, console='stdout', immediately_visible=False):
+      """
+      Initialize the console.
+
+      Args:
+          self: (todo): write your description
+          fpath: (str): write your description
+          console: (todo): write your description
+          immediately_visible: (bool): write your description
+      """
     import sys
     import os
     import os.path as osp
@@ -50,15 +59,40 @@ class ReDirectSTD(object):
       sys.stderr = self
 
   def __del__(self):
+      """
+      Closes the stream.
+
+      Args:
+          self: (todo): write your description
+      """
     self.close()
 
   def __enter__(self):
+      """
+      Enter the callable
+
+      Args:
+          self: (todo): write your description
+      """
     pass
 
   def __exit__(self, *args):
+      """
+      Exit the exit.
+
+      Args:
+          self: (todo): write your description
+      """
     self.close()
 
   def write(self, msg):
+      """
+      Write a message to the console.
+
+      Args:
+          self: (todo): write your description
+          msg: (str): write your description
+      """
     self.console.write(msg)
     if self.file is not None:
       may_make_dir(os.path.dirname(osp.abspath(self.file)))
@@ -71,6 +105,12 @@ class ReDirectSTD(object):
         self.f.write(msg)
 
   def flush(self):
+      """
+      Flush the console
+
+      Args:
+          self: (todo): write your description
+      """
     self.console.flush()
     if self.f is not None:
       self.f.flush()
@@ -78,6 +118,12 @@ class ReDirectSTD(object):
       os.fsync(self.f.fileno())
 
   def close(self):
+      """
+      Close the console.
+
+      Args:
+          self: (todo): write your description
+      """
     self.console.close()
     if self.f is not None:
       self.f.close()
@@ -100,6 +146,12 @@ def may_make_dir(path):
 
 
 def time_str(fmt=None):
+    """
+    Return a string representing the time of the string.
+
+    Args:
+        fmt: (str): write your description
+    """
   if fmt is None:
     fmt = '%Y-%m-%d_%H:%M:%S'
   return datetime.datetime.today().strftime(fmt)
