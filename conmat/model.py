@@ -85,6 +85,15 @@ def predict_labels_conmat(
 
 
 def logits2prediction(outputs_to_scales_to_logits, images, method=None, sigmoid=True):
+    """
+    Convert predictions to predictions.
+
+    Args:
+        outputs_to_scales_to_logits: (todo): write your description
+        images: (list): write your description
+        method: (str): write your description
+        sigmoid: (float): write your description
+    """
   predictions = {}
   for i, output in enumerate(sorted(outputs_to_scales_to_logits)):
     scales_to_logits = outputs_to_scales_to_logits[output]
@@ -193,6 +202,17 @@ def _add_aspp(features,
               reuse=None,
               is_training=False,
               fine_tune_batch_norm=False):
+    """
+    Add image aspp model.
+
+    Args:
+        features: (array): write your description
+        model_options: (todo): write your description
+        weight_decay: (todo): write your description
+        reuse: (todo): write your description
+        is_training: (bool): write your description
+        fine_tune_batch_norm: (bool): write your description
+    """
     if not model_options.aspp_with_batch_norm:
         return features
     else:
@@ -338,6 +358,15 @@ def _extract_features(images,
 
 
 def _add_features_endpoints(scope, model_variant, images, endpoints):
+    """
+    Add endpoints to model endpoints.
+
+    Args:
+        scope: (todo): write your description
+        model_variant: (todo): write your description
+        images: (todo): write your description
+        endpoints: (todo): write your description
+    """
     if 'mobilenet' in model_variant:
         scope_name = ''
         model_variant_name = ''
@@ -381,6 +410,29 @@ def build_branch(
         model_parallelism=False,
         mat_branch=True,
         seg_branch=True):
+    """
+    Builds the model for training.
+
+    Args:
+        images: (list): write your description
+        model_options: (todo): write your description
+        extra_feature: (str): write your description
+        color_refine_one_time: (str): write your description
+        color_refine_layer_id: (str): write your description
+        mat_refine_one_time: (str): write your description
+        mat_refine_layer_id: (str): write your description
+        weight_decay: (str): write your description
+        add_trimap: (str): write your description
+        decoder_depth: (str): write your description
+        kernel_size: (int): write your description
+        reuse: (todo): write your description
+        is_training: (bool): write your description
+        fine_tune_batch_norm: (bool): write your description
+        fine_tune_batch_norm_decoder: (bool): write your description
+        model_parallelism: (bool): write your description
+        mat_branch: (str): write your description
+        seg_branch: (todo): write your description
+    """
 
   if fine_tune_batch_norm_decoder is None:
      fine_tune_batch_norm_decoder = fine_tune_batch_norm
@@ -501,6 +553,19 @@ def _build_logits(
         weight_decay,
         reuse,
         scope_suffix,):
+    """
+    : param endpoints matrix. logits.
+
+    Args:
+        endpoints: (todo): write your description
+        num_class: (int): write your description
+        atrous_rates: (float): write your description
+        aspp_with_batch_norm: (todo): write your description
+        logits_kernel_size: (int): write your description
+        weight_decay: (str): write your description
+        reuse: (todo): write your description
+        scope_suffix: (str): write your description
+    """
   outputs_to_logits = {}
   for i, features in enumerate(endpoints):
     outputs_to_logits[i] = _get_branch_logits(
@@ -654,6 +719,14 @@ def _get_logits_conmat(comp_images,
 
 
 def get_feature_name(name, model_variant, scope):
+    """
+    Returns the name of a model name.
+
+    Args:
+        name: (str): write your description
+        model_variant: (todo): write your description
+        scope: (todo): write your description
+    """
     if model_variant == 'mobilenet_v2':
         feature_name = '{}'.format(name)
     elif 'xception' in model_variant:
@@ -683,6 +756,26 @@ def refine_by_decoder_conmat(features,
                              reuse=None,
                              is_training=False,
                              fine_tune_batch_norm=False):
+    """
+    Refine decoder.
+
+    Args:
+        features: (todo): write your description
+        end_points: (bool): write your description
+        refine_one_time: (bool): write your description
+        refine_layer_id: (str): write your description
+        encoder_scope: (str): write your description
+        trimaps: (todo): write your description
+        kernel_size: (int): write your description
+        add_trimap: (todo): write your description
+        decoder_depth: (str): write your description
+        decoder_use_separable_conv: (bool): write your description
+        model_variant: (todo): write your description
+        weight_decay: (todo): write your description
+        reuse: (todo): write your description
+        is_training: (bool): write your description
+        fine_tune_batch_norm: (bool): write your description
+    """
   batch_norm_params = {
       'is_training': is_training and fine_tune_batch_norm,
       'decay': 0.9997,
@@ -769,6 +862,19 @@ def _get_branch_logits(features,
                        weight_decay=0.0001,
                        reuse=None,
                        scope_suffix=''):
+    """
+    Get the logits.
+
+    Args:
+        features: (str): write your description
+        num_classes: (int): write your description
+        atrous_rates: (str): write your description
+        aspp_with_batch_norm: (bool): write your description
+        kernel_size: (int): write your description
+        weight_decay: (str): write your description
+        reuse: (todo): write your description
+        scope_suffix: (str): write your description
+    """
   if aspp_with_batch_norm or atrous_rates is None:
     if kernel_size != 1:
       raise ValueError('Kernel size must be 1 when atrous_rates is None or '

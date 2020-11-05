@@ -84,6 +84,12 @@ _PREPROCESS_FN = {
 
 
 def mean_pixel(model_variant=None):
+    """
+    Return mean mean of a model.
+
+    Args:
+        model_variant: (todo): write your description
+    """
   if model_variant in ['resnet_v1_50', 'resnet_v1_101'] or model_variant is None:
     return _MEAN_RGB
   else:
@@ -188,6 +194,12 @@ def get_network(network_name, preprocess_images, arg_scope=None):
     raise ValueError('Unsupported network %s.' % network_name)
   arg_scope = arg_scope or arg_scopes_map[network_name]()
   def _identity_function(inputs):
+      """
+      Decorator function function that is a function function that function.
+
+      Args:
+          inputs: (array): write your description
+      """
     return inputs
   if preprocess_images:
     preprocess_function = _PREPROCESS_FN[network_name]
@@ -196,6 +208,12 @@ def get_network(network_name, preprocess_images, arg_scope=None):
   func = networks_map[network_name]
   @functools.wraps(func)
   def network_fn(inputs, *args, **kwargs):
+      """
+      Decorator.
+
+      Args:
+          inputs: (todo): write your description
+      """
     with slim.arg_scope(arg_scope):
       return func(preprocess_function(inputs), *args, **kwargs)
   return network_fn
