@@ -115,7 +115,7 @@ You can download our results of Compisition-1k dataset and the real-world image 
 
 
 ## License
-The provided implementation is strictly for academic purposes only. 
+The provided implementation is for research purposes only. 
 Should you be interested in using our technology for any commercial use, please feel free to contact us.
 
 
@@ -130,7 +130,7 @@ If you find this code is helpful, please consider to cite our paper.
 }
 ```
 
-If you find any bugs of the code, feel free to send me an email: qiqi2 AT pdx DOT edu. You can find more information in my 
+If you find any bugs of the code, feel free to send me an email: qiqi.hou2012@gmail.com. You can find more information in my 
 [homepage](https://hqqxyy.github.io/).
 
 
